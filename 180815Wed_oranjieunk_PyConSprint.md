@@ -1,2 +1,2 @@
-Sphinx ¼³Ä¡
-dataframe.pivot¿¡ ´ëÇÑ ÀÌ½´ ¹ß°ß
+ï»¿Sphinx ì„¤ì¹˜
+dataframe.pivotì— ëŒ€í•œ ì´ìŠˆ ë°œê²¬
