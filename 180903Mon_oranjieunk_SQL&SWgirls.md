@@ -1,33 +1,35 @@
-1. ±¸¸ÅÅ×ÀÌºí¿¡¼­ ±¸¸Å °í°´ÀÇ À¯´ÏÅ©ÇÑ ÀÌ¸§¸¸À» ±¸ÇØ º¸¼¼¿ä.
+1. êµ¬ë§¤í…Œì´ë¸”ì—ì„œ êµ¬ë§¤ ê³ ê°ì˜ ìœ ë‹ˆí¬í•œ ì´ë¦„ë§Œì„ êµ¬í•´ ë³´ì„¸ìš”.
 SELECT DISTINCT Customers.CustomerName FROM Customers 
 INNER JOIN Orders ON Orders.CustomerID = Customers.CustomerID
 
-2. ±¸¸Å Å×ÀÌºí¿¡¼­ 5¹ø ÀÌ»ó ±¸¸ÅÇÑ °í°´ÀÇ ÀÌ¸§°ú ±¸¸ÅÇÑ È½¼ö¸¦ ±¸ÇØ º¸¼¼¿ä.
+2. êµ¬ë§¤ í…Œì´ë¸”ì—ì„œ 5ë²ˆ ì´ìƒ êµ¬ë§¤í•œ ê³ ê°ì˜ ì´ë¦„ê³¼ êµ¬ë§¤í•œ íšŸìˆ˜ë¥¼ êµ¬í•´ ë³´ì„¸ìš”.
 SELECT Customers.CustomerName, count(*) as count FROM Customers
 INNER JOIN Orders ON Orders.CustomerID = Customers.CustomerID
 group by(Customers.CustomerName)
 Having count(*) > 5
 order by count(*) desc
 
-3. ±¸¸Å Å×ÀÌºí¿¡¼­ °¡Àå ¸¹ÀÌ ÆÇ¸ÅµÈ 5°³ÀÇ »óÇ°ÀÇ ÀÌ¸§°ú È½¼ö¸¦ ±¸ÇØ º¸¼¼¿ä.
-SELECT Products.ProductName, count(OrderDetails.Quantity) as ÆÇ¸ÅÈ½¼ö, sum(OrderDetails.Quantity) as ÆÇ¸Å¼ö·®
+3. êµ¬ë§¤ í…Œì´ë¸”ì—ì„œ ê°€ì¥ ë§ì´ íŒë§¤ëœ 5ê°œì˜ ìƒí’ˆì˜ ì´ë¦„ê³¼ íšŸìˆ˜ë¥¼ êµ¬í•´ ë³´ì„¸ìš”.
+SELECT Products.ProductName, count(OrderDetails.Quantity) as íŒë§¤íšŸìˆ˜, sum(OrderDetails.Quantity) as íŒë§¤ìˆ˜ëŸ‰
 FROM OrderDetails
 INNER JOIN Products ON Products.ProductID = OrderDetails.ProductID
 group by(OrderDetails.ProductID)
-Order by ÆÇ¸Å¼ö·® desc
+Order by íŒë§¤ìˆ˜ëŸ‰ desc
 LIMIT 5
 
-4. ¹è¼Û±â»ç(Shippers)°¡ ¹è¼ÛÇÑ ÁÖ¹® °Ç°ú »óÇ° °¹¼ö¸¦ ±¸ÇØ º¸¼¼¿ä.
+4. ë°°ì†¡ê¸°ì‚¬(Shippers)ê°€ ë°°ì†¡í•œ ì£¼ë¬¸ ê±´ê³¼ ìƒí’ˆ ê°¯ìˆ˜ë¥¼ êµ¬í•´ ë³´ì„¸ìš”.
 SELECT Shippers.ShipperName, count(Orders.OrderID) as OrdersCount, sum(OrderDetails.Quantity) as ProductsCount
 FROM OrderDetails
 INNTER JOIN Orders ON Orders.OrderID = OrderDetails.OrderID
 INNER JOIN Shippers ON Shippers.ShipperID = Orders.ShipperID
 group by(Orders.ShipperID)
 
-5. °¡Àå ¸¹ÀÌ ÆÇ¸ÅµÈ »óÇ°ÀÇ ÀÌ¸§À» ±¸ÇØ º¸¼¼¿ä.
-SELECT Products.ProductName, SUM(OrderDetails.Quantity) as ÆÇ¸Å¼ö·®
+5. ê°€ì¥ ë§ì´ íŒë§¤ëœ ìƒí’ˆì˜ ì´ë¦„ì„ êµ¬í•´ ë³´ì„¸ìš”.
+SELECT Products.ProductName, SUM(OrderDetails.Quantity) as íŒë§¤ìˆ˜ëŸ‰
 FROM OrderDetails
 INNER JOIN Products ON Products.ProductID = OrderDetails.ProductID
 group by(OrderDetails.ProductID)
-Order by ÆÇ¸Å¼ö·® desc
+Order by íŒë§¤ìˆ˜ëŸ‰ desc
 LIMIT 1
+
+# ë¹…ë°ì´í„° SW girls 
