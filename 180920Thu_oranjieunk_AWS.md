@@ -1,3 +1,4 @@
+===
 ls *.pem
 mkdir ~/.ssh
 # pem을 ssh에 넣어라!
@@ -5,7 +6,7 @@ mv daitgirls.pem ~/.ssh/
 #윈도우는 \이고, 다른 곳은 /으로 구분
 # 나만 읽고 다른 애들은 못하게! 다른 로그온 사용자가 로그인해서 파일 내용을 들여다 볼 수 없도록!(공용 폴더에 있으면 들어갈 수 있음)
 chmod 600 ~/.ssh/daitgirls.pem
-
+===
 
 우분투로 들어가기
 단계6 보안그룹
@@ -26,6 +27,7 @@ ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
 # 나오는 것들을 github에 repository Deploy keys에서 Add deploy key 등록
 
+===
 nano run.sh
 ls
 # 남은 읽거나 실행할 수 있음
@@ -57,3 +59,4 @@ minute, hour, day of month, day of week
 /home/ubuntu/projects/rand_num_generator/run.sh
 
 ctrl+x 눌러서 저장
+===
